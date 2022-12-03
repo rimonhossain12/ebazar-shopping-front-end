@@ -28,6 +28,7 @@ const Nav = () => {
           <Link to="/">Home</Link>         
             <Link to="/about" className="fw-bold text-capitalize fs-7">About</Link>
             <Link to="/contact" className="fw-bold text-capitalize fs-7">Contact</Link>
+            <Link to="/dashboard" className="fw-bold text-capitalize fs-7">Dashboard</Link>
             {
              user?.email ?  <Button gradientDuoTone="purpleToPink" onClick={logout}>
              Logout

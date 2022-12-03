@@ -1,9 +1,14 @@
 import { Button, Card, Label, TextInput } from "flowbite-react";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
 
 const Login = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
   const {
     register,
     formState: { errors },
@@ -11,8 +16,20 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    signInWithEmailAndPassword(data.email, data.password);
   };
+
+  let singInError;
+  if (error) {
+    singInError = <p className="text-thin text-red-500">{error.message}</p>;
+  }
+  let navigate = useNavigate();
+
+  if (user) {
+    console.log(user);
+    navigate('/')
+    toast.success("user login successfully");
+  }
 
   return (
     <>
@@ -45,7 +62,7 @@ const Login = () => {
                   })}
                   aria-invalid={errors.email ? "true" : "false"}
                   type="email"
-                  placeholder="name@flowbite.com"
+                  placeholder="dev@gmail.com"
                 />
 
                 <Label className="text-red-500">
@@ -92,8 +109,8 @@ const Login = () => {
                   )}
                 </label>
               </div>
-
-              <Button type="submit">submit</Button>
+              {singInError}
+              <Button type="submit">Login</Button>
               <div className="flex items-center gap-2 text-center">
                 <Label htmlFor="agree" className="text-center">
                   Have an account?{" "}
@@ -101,7 +118,7 @@ const Login = () => {
                     to="/register"
                     className="text-blue-600 hover:underline dark:text-blue-500 text-center"
                   >
-                    Please Login here
+                    Please Regiser here
                   </Link>
                 </Label>
               </div>

@@ -8,7 +8,7 @@ import Efooter from "./pages/Shared/Efooter";
 import Login from "./pages/Home/Login/Login";
 import Register from "./pages/Home/Login/Register";
 import { ToastContainer } from 'react-toastify';
-
+// rimonhossain74@gmail.com rimon1234
 function App() {
   return (
     <div>
@@ -16,6 +16,7 @@ function App() {
       <div>
           <Routes>        
           <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />

@@ -1,30 +1,60 @@
 import { Button, Card, Label, TextInput } from "flowbite-react";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from "../../../firebase.init";
+
 
 const Regiser = () => {
+  const [
+    createUserWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useCreateUserWithEmailAndPassword(auth);
+
   const {
     register,
+    reset ,
     formState: { errors },
     handleSubmit,
   } = useForm();
 
-  const onSubmit = (data) => {
+  let singInError;
+
+  const onSubmit =  (data) => {
     const password1 = data.password;
     const password2 = data.password2;
-    if ( (password1 !== password2)  ) {
-         toast.error("password didn't match!");
-        return;
-    } else{
-        console.log('password match');
-        console.log(data);
-        
+    if (password1 !== password2) {
+      toast.error("password didn't match!");
+      return;
+    } 
+    else {
+      createUserWithEmailAndPassword(data.email,data.password);
+      reset ();
+      
     }
   };
+
+  if ( error ) {
+    singInError =  <p className="text-thin text-red-500">{error.message}</p>
+  }
+
+
+  let navigate = useNavigate();
+  if ( user ) {   
+    console.log('user',user);
+     toast('user create successfully');
+     navigate('/')
+  }
+
+  if ( loading ) {
+    
+  }
 
   return (
     <>
@@ -80,7 +110,7 @@ const Regiser = () => {
                   })}
                   aria-invalid={errors.email ? "true" : "false"}
                   type="email"
-                  placeholder="name@flowbite.com"
+                  placeholder="dev@gmail.com"
                 />
 
                 <Label className="text-red-500">
@@ -160,6 +190,7 @@ const Regiser = () => {
               </div>
 
               <Button type="submit">submit</Button>
+              {singInError}
               <div className="flex items-center gap-2 text-center">
                 <Label htmlFor="agree" className="text-center">
                   Have an account?{" "}

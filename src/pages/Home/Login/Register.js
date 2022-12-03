@@ -1,12 +1,12 @@
+import React from "react";
 import { Button, Card, Label, TextInput } from "flowbite-react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
-import React from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from "../../../firebase.init";
+import Loading from "../../Shared/Loading/Loading";
 
 
 const Regiser = () => {
@@ -53,7 +53,7 @@ const Regiser = () => {
   }
 
   if ( loading ) {
-    
+      <Loading />
   }
 
   return (

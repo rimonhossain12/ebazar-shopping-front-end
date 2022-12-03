@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
+import Loading from "../../Shared/Loading/Loading";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -29,6 +30,10 @@ const Login = () => {
     console.log(user);
     navigate('/')
     toast.success("user login successfully");
+  }
+
+  if ( loading ) {
+    return <Loading />
   }
 
   return (

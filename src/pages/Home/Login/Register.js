@@ -30,7 +30,7 @@ const Regiser = () => {
     const password1 = data.password;
     const password2 = data.password2;
     if (password1 !== password2) {
-      toast.error("password didn't match!");
+      toast("user register successfully!");
       return;
     } 
     else {
@@ -49,7 +49,7 @@ const Regiser = () => {
   if ( user ) {   
     console.log('user',user);
      toast('user create successfully');
-     navigate('/')
+     navigate('/');
   }
 
   if ( loading ) {

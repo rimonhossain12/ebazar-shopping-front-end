@@ -1,5 +1,5 @@
 import { Button, Card, Label, TextInput } from "flowbite-react";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -26,11 +26,14 @@ const Login = () => {
   }
   let navigate = useNavigate();
 
-  if (user) {
-    console.log(user);
-    navigate('/')
-    toast.success("user login successfully");
-  }
+
+
+  useEffect(() => {
+		if (user) {
+			// navigate(from, { replace: true })
+      navigate('/')
+		}
+	}, [user, navigate])
 
   if ( loading ) {
     return <Loading />

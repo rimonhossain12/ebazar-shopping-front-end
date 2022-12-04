@@ -9,6 +9,7 @@ import Login from "./pages/Home/Login/Login";
 import Register from "./pages/Home/Login/Register";
 import { ToastContainer } from 'react-toastify';
 import DashboardHome from "./pages/Dashboard/DashboardHome/DashboardHome";
+import FeatureProudct from "./pages/featureProduct/FeatureProudct";
 // rimonhossain74@gmail.com rimon1234
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/feature" element={<FeatureProudct />} />
           <Route path="/dashboard" element={<DashboardHome />} />
         </Routes>
         <ToastContainer />

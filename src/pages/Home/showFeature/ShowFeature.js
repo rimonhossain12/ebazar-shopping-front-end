@@ -42,6 +42,7 @@ const ShowFeature = () => {
 
   return (
     <div className="container-lg my-12">
+      <h2 className="text-indigo-500 px-12 font-semibold my-12 text-2xl">Feature products</h2>
           <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 px-12 mx-auto">
             {
               featureProducts.map((feature) => <Feature  key={feature._id} feature={feature} />)

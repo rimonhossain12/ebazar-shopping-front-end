@@ -10,6 +10,7 @@ import Register from "./pages/Home/Login/Register";
 import { ToastContainer } from 'react-toastify';
 import DashboardHome from "./pages/Dashboard/DashboardHome/DashboardHome";
 import FeatureProudct from "./pages/featureProduct/FeatureProudct";
+import ProductDetails from "./pages/Home/ProductDetails/ProductDetails";
 // rimonhossain74@gmail.com rimon1234
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/feature" element={<FeatureProudct />} />
+          <Route path="/productsDetails/:id" element={<ProductDetails />} />
           <Route path="/dashboard" element={<DashboardHome />} />
         </Routes>
         <ToastContainer />

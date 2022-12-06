@@ -9,7 +9,6 @@ const Products = () => {
       .get("https://fakestoreapi.com/products")
       .then((res) => {
         setProducts(res.data);
-        console.log(res?.data);
       })
       .catch((err) => {
         console.log("errors = ", err.message);

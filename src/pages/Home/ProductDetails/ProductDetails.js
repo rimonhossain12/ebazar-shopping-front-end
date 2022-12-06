@@ -21,7 +21,7 @@ const ProductDetails = () => {
   console.log(product);
   return (
     <div className="container-lg px-12 mx-auto flex my-12">
-      <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-5 mx-auto">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-5 mx-auto">
         <div>
           <div className="max-w-md">
             <Card>

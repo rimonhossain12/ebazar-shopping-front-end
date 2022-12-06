@@ -14,7 +14,7 @@ const Nav = () => {
   };
 
   return (
-    <div className="shadow-md">
+    <div className="shadow-lg">
       <div className="container px-12">
         <Navbar fluid={true} rounded={true}>
           <Navbar.Brand href="https://rimon-protfolio.web.app/">
@@ -42,10 +42,10 @@ const Nav = () => {
                 Login
               </Link>
             )}
-            <Link to="/contact" className="fw-bold text-capitalize mb-3 fs-7">
+            <Link to="/myorder" className="fw-bold text-capitalize mb-3 fs-7">
             <span className="text-red-500 absolute mt-[-12px] ml-[12px] font-bold">10</span>
               <FaShoppingCart 
-              className="relative"
+              className="relative text-gray-500"
               size={25} />
                
             </Link>

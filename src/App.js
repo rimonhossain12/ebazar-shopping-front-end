@@ -11,6 +11,7 @@ import { ToastContainer } from 'react-toastify';
 import DashboardHome from "./pages/Dashboard/DashboardHome/DashboardHome";
 import FeatureProudct from "./pages/featureProduct/FeatureProudct";
 import ProductDetails from "./pages/Home/ProductDetails/ProductDetails";
+import MyOrder from "./pages/Home/MyOrder/MyOrder";
 // rimonhossain74@gmail.com rimon1234
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/feature" element={<FeatureProudct />} />
           <Route path="/productsDetails/:id" element={<ProductDetails />} />
           <Route path="/dashboard" element={<DashboardHome />} />
+          <Route path="/myorder" element={<MyOrder />} />
         </Routes>
         <ToastContainer />
         </div>

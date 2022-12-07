@@ -10,16 +10,15 @@ import Register from "./pages/Home/Login/Register";
 import { ToastContainer } from "react-toastify";
 import DashboardHome from "./pages/Dashboard/DashboardHome/DashboardHome";
 import FeatureProudct from "./pages/featureProduct/FeatureProudct";
-// import ProductDetails from "./pages/Home/ProductDetails/ProductDetails";
 import MyOrder from "./pages/Home/MyOrder/MyOrder";
 import CardContextProvider from "./contextApi2/CardContext";
-// import CardContextProvider from "./context/CardContext";
+import { TextCreateProvider } from "./tryContext/TestContext";
 
 // rimonhossain74@gmail.com rimon1234
 function App() {
   return (
-    // <CardContextProvider>
     <CardContextProvider>
+      <TextCreateProvider>
       <Nav />
       <div>
         <Routes>
@@ -37,8 +36,8 @@ function App() {
         <ToastContainer />
       </div>
       <Efooter />
+      </TextCreateProvider>      
     </CardContextProvider>
-    // </CardContextProvider>
   );
 }
 

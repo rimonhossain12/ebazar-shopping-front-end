@@ -6,9 +6,11 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { signOut } from "firebase/auth";
 import { FaShoppingCart } from "react-icons/fa";
+import { useCardContext } from "../../../contextApi2/CardContext";
 
 const Nav = () => {
   const [user] = useAuthState(auth);
+  const {cart} = useCardContext();
   const logout = () => {
     signOut(auth);
   };
@@ -43,7 +45,7 @@ const Nav = () => {
               </Link>
             )}
             <Link to="/myorder" className="fw-bold text-capitalize mb-3 fs-7">
-            <span className="text-red-500 absolute mt-[-12px] ml-[12px] font-bold">10</span>
+            <span className="text-red-500 absolute mt-[-12px] ml-[20px] font-bold">{cart.length}</span>
               <FaShoppingCart 
               className="relative text-gray-500"
               size={25} />

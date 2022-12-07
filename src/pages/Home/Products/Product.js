@@ -1,14 +1,13 @@
 import { Card } from "flowbite-react";
 import React from "react";
-import { Link } from "react-router-dom";
+import { useCardContext } from "../../../contextApi2/CardContext";
 
-const Product = ({ product,handleClick,setCart }) => {
-  const { id, title, price, image, rating } = product;
-  console.log(setCart,handleClick)
+const Product = ({ product }) => {
+  const {title, price, image, rating } = product;
+  const {handleOnClick} = useCardContext();
 
   return (
     <div className="max-w-sm" style={{height:'490px'}}>
-     <Link to={`/productsDetails/${id}`}>
      <Card>
         <Card>
           <img style={{ height: "180px" }} src={image} alt="not found" />
@@ -65,10 +64,9 @@ const Product = ({ product,handleClick,setCart }) => {
           <span className="text-xl font-semibold text-gray-900 dark:text-white">
            ${price}
           </span>
-          <button onClick={() => handleClick(product)}  className="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">add to cart</button>
+          <button onClick={() => handleOnClick(product)}  className="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">add to cart</button>
         </div>
       </Card>
-     </Link>
     </div>
   );
 };

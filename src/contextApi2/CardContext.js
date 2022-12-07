@@ -4,16 +4,17 @@ const CardContext = React.createContext();
 
 export const useCardContext = () => useContext(CardContext);
 
-const handleOnClick = (id) => {
-    console.log(id)
-}
-
 function CardContextProvider({ children }) {
-    const [cart,setCart] = useState([1,2,3,4,5]);
-    console.log(cart)
+  const [cart, setCart] = useState([]);
+
+  const handleOnClick = (data) => {
+    setCart([...cart,data]);
+  };
+
+  console.log('length = ',cart?.length);
 
   return (
-    <CardContext.Provider value={{ setCart,handleOnClick}}>
+    <CardContext.Provider value={{ cart, handleOnClick }}>
       {children}
     </CardContext.Provider>
   );

@@ -11,15 +11,13 @@ const MyOrder = () => {
     }
   },[])
 
-  console.log(items.qty);
-
   return (
     <div className='contianer-lg px-12 my-12 '>
         <h3 className="text-3xl text-gray-500">All the my order : {items.length}</h3>
         <div className='grid grid-cols-1 mb-5'>
           {
-            items.map((item) => (
-              <div className="max-w-sm">
+            items.map((item,index) => (
+              <div className="max-w-sm" key={index}>
               <Card
                 horizontal={true}
                 imgSrc={item?.image}

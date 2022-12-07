@@ -44,12 +44,11 @@ const Nav = () => {
                 Login
               </Link>
             )}
-            <Link to="/myorder" className="fw-bold text-capitalize mb-3 fs-7">
+            <Link to="#" className="fw-bold text-capitalize mb-3 fs-7">
             <span className="text-red-500 absolute mt-[-12px] ml-[20px] font-bold">{cart.length}</span>
               <FaShoppingCart 
               className="relative text-gray-500"
               size={25} />
-               
             </Link>
           </Navbar.Collapse>
         </Navbar>

@@ -13,6 +13,7 @@ import FeatureProudct from "./pages/featureProduct/FeatureProudct";
 import MyOrder from "./pages/Home/MyOrder/MyOrder";
 import CardContextProvider from "./contextApi2/CardContext";
 import { TextCreateProvider } from "./tryContext/TestContext";
+import ProductDetails from "./pages/Home/ProductDetails/ProductDetails";
 
 // rimonhossain74@gmail.com rimon1234
 function App() {
@@ -29,7 +30,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/feature" element={<FeatureProudct />} />
-          {/* <Route path="/productsDetails/:id" element={<ProductDetails />} /> */}
+          <Route path="/productsDetails/:id" element={<ProductDetails />} />
           <Route path="/dashboard" element={<DashboardHome />} />
           <Route path="/myorder" element={<MyOrder />} />
         </Routes>

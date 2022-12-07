@@ -8,7 +8,7 @@ function CardContextProvider({ children }) {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    const getCart = localStorage.getItem('cart');
+    const getCart = localStorage.getItem("cart");
     if (getCart) {
       setCart(JSON.parse(getCart));
     }
@@ -16,31 +16,33 @@ function CardContextProvider({ children }) {
 
   const handleAddToCart = (data) => {
     const findIndex = cart.findIndex((item) => item.id === data.id);
-
-    if ( findIndex !== -1 ){
-      // cart[findIndex].qty = cart[findIndex].qty ? cart[findIndex].qty + 1 : 1;
+    if (findIndex !== -1) {
       cart[findIndex].qty = cart[findIndex].qty ? cart[findIndex].qty + 1 : 1;
-
-      setCart([...cart],cart[findIndex]);
-    }
-    else {
+      setCart([...cart], cart[findIndex]);
+    } else {
       setCart([
         ...cart,
         {
           ...data,
-          qty:1
-        }
-      ])
+          qty: 1,
+        },
+      ]);
     }
-
-    localStorage.setItem('cart',JSON.stringify(cart));
-
+    localStorage.setItem("cart", JSON.stringify(cart));
   };
 
-  console.log('user cart = ',cart);
+  const incrementQuantity = (id) => {
+    console.log(id);
+  };
+
+  const decrementQuantity = (id) => {
+    console.log(id);
+  };
 
   return (
-    <CardContext.Provider value={{ cart, handleAddToCart }}>
+    <CardContext.Provider
+      value={{ cart, handleAddToCart, incrementQuantity, decrementQuantity }}
+    >
       {children}
     </CardContext.Provider>
   );

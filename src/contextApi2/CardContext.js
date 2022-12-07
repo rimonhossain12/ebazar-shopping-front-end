@@ -15,7 +15,7 @@ function CardContextProvider({ children }) {
   }, []);
 
   const handleAddToCart = (data) => {
-    const findIndex = cart.findIndex((item) => item.id === data.id);
+    const findIndex = cart.findIndex((item) => item.id == data.id);
     if (findIndex !== -1) {
       cart[findIndex].qty = cart[findIndex].qty ? cart[findIndex].qty + 1 : 1;
       setCart([...cart], cart[findIndex]);
@@ -30,6 +30,11 @@ function CardContextProvider({ children }) {
     }
     localStorage.setItem("cart", JSON.stringify(cart));
   };
+
+  console.log(
+    
+    [cart]
+  )
 
   const incrementQuantity = (id) => {
     console.log(id);
